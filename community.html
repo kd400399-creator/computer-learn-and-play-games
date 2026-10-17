@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Community | Computer Learn And Play Games</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#39ff88;--bg:#080b0a;--panel:#111714;--text:#f4fff8;--muted:#a1b1a7}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header{padding:18px 7%;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;background:#0b100d;border-bottom:1px solid #20392b}
+.logo{color:var(--green);font-size:19px;font-weight:900;text-decoration:none}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+nav a{color:var(--text);text-decoration:none;font-size:14px}
+nav a:hover,nav a.active{color:var(--green)}
+main{max-width:900px;margin:auto;padding:55px 7% 75px}
+.tag{color:var(--green);font-size:12px;letter-spacing:3px;font-weight:bold}
+h1{font-size:clamp(32px,6vw,52px);margin:10px 0}
+p{color:var(--muted)}
+.panel{background:var(--panel);border:1px solid #26372c;border-radius:14px;padding:22px;margin-top:25px}
+label{display:block;margin:14px 0 6px;font-weight:bold}
+input,textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #35473a;background:#080d09;color:white;font:inherit}
+textarea{min-height:110px;resize:vertical}
+button,.btn{display:inline-block;border:0;border-radius:8px;background:var(--green);color:#07110a;padding:11px 16px;font-weight:bold;cursor:pointer;text-decoration:none;margin-top:14px}
+button:hover,.btn:hover{background:#a4ffc7}
+.post{border-top:1px solid #29382e;padding:18px 0;overflow-wrap:anywhere}
+.post:first-child{border-top:0}
+.post strong{color:var(--green)}
+.post small{display:block;color:var(--muted);margin-top:5px}
+.post p{margin-top:8px;white-space:pre-wrap}
+.delete{background:#29352d;color:white;margin-left:8px}
+.note{font-size:13px;margin-top:14px}
+footer{border-top:1px solid #20392b;text-align:center;padding:25px 7%;font-size:13px;color:var(--muted)}
+footer span{color:var(--green)}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="index.html">🎮 CLPG</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="videos.html">Videos</a>
+<a class="active" href="community.html">Community</a>
+<a href="about.html">About</a>
+</nav>
+</header>
+
+<main>
+<div class="tag">GAMERS UNITE</div>
+<h1>Our <span style="color:var(--green)">Community</span></h1>
+<p>A place to share gaming thoughts, favourite games and ideas.</p>
+
+<section class="panel">
+<h2>✍️ Create a post</h2>
+<form id="postForm">
+<label for="username">Your nickname</label>
+<input id="username" maxlength="30" placeholder="Enter a nickname" required>
+<label for="message">Your post</label>
+<textarea id="message" maxlength="500" placeholder="What are you playing lately?" required></textarea>
+<button type="submit">Publish post</button>
+</form>
+<p class="note">Posts are saved only in this browser on this device. They are not shared with other visitors.</p>
+</section>
+
+<section class="panel">
+<h2>💬 Community posts</h2>
+<div id="posts" style="margin-top:12px"></div>
+</section>
+</main>
+
+<footer>© <span>Computer Learn And Play Games</span> — Keep Gaming, Keep Learning!</footer>
+
+<script>
+const form = document.getElementById("postForm");
+const postsBox = document.getElementById("posts");
+const storageKey = "clpg_community_posts_v1";
+
+function loadPosts() {
+  try {
+    const posts = JSON.parse(localStorage.getItem(storageKey) || "[]");
+    postsBox.replaceChildren();
+
+    if (!Array.isArray(posts) || posts.length === 0) {
+      postsBox.textContent = "No posts yet. Be the first to post!";
+      return;
+    }
+
+    posts.slice().reverse().forEach((post, reverseIndex) => {
+      const index = posts.length - 1 - reverseIndex;
+      const article = document.createElement("article");
+      article.className = "post";
+
+      const name = document.createElement("strong");
+      name.textContent = post.name;
+
+      const date = document.createElement("small");
+      date.textContent = post.date;
+
+      const message = document.createElement("p");
+      message.textContent = post.message;
+
+      const remove = document.createElement("button");
+      remove.className = "delete";
+      remove.textContent = "Delete";
+      remove.type = "button";
+      remove.addEventListener("click", () => {
+        if (!confirm("Delete this post from this browser?")) return;
+        const current = JSON.parse(localStorage.getItem(storageKey) || "[]");
+        current.splice(index, 1);
+        localStorage.setItem(storageKey, JSON.stringify(current));
+        loadPosts();
+      });
+
+      article.append(name, date, message, remove);
+      postsBox.append(article);
+    });
+  } catch {
+    postsBox.textContent = "Could not load posts in this browser.";
+  }
+}
+
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  const name = document.getElementById("username").value.trim();
+  const message = document.getElementById("message").value.trim();
+  if (!name || !message) return;
+
+  let posts = [];
+  try {
+    posts = JSON.parse(localStorage.getItem(storageKey) || "[]");
+    if (!Array.isArray(posts)) posts = [];
+  } catch {
+    posts = [];
+  }
+
+  posts.push({
+    name,
+    message,
+    date: new Date().toLocaleString()
+  });
+
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(posts));
+    form.reset();
+    loadPosts();
+  } catch {
+    alert("Browser storage is unavailable or full.");
+  }
+});
+
+loadPosts();
+</script>
+</body>
+</html>
