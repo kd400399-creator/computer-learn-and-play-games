@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos | Computer Learn And Play Games</title>
+  <meta name="description" content="Watch gaming videos, gameplay and reviews on Computer Learn And Play Games.">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --green: #39ff88;
+      --bg: #080b0a;
+      --panel: #111714;
+      --text: #f4fff8;
+      --muted: #a1b1a7;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #20392b;
+      background: #0b100d;
+    }
+
+    .logo {
+      color: var(--green);
+      font-weight: 900;
+      font-size: 19px;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--green);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 75px 20px 55px;
+      background: radial-gradient(ellipse at top, #163322 0%, var(--bg) 68%);
+    }
+
+    .tag {
+      color: var(--green);
+      font-weight: bold;
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 7vw, 64px);
+      line-height: 1.1;
+      margin: 15px 0;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 35px 7% 75px;
+      max-width: 1250px;
+      margin: auto;
+    }
+
+    .section-heading {
+      margin-bottom: 24px;
+    }
+
+    .section-heading h2 {
+      font-size: 27px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .video-card {
+      background: var(--panel);
+      border: 1px solid #26372c;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .video-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--green);
+    }
+
+    .thumbnail {
+      min-height: 155px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #173b27, #101512 75%);
+      border-bottom: 1px solid #26372c;
+    }
+
+    .thumbnail .symbol {
+      font-size: 43px;
+      margin-bottom: 8px;
+    }
+
+    .thumbnail strong {
+      color: var(--green);
+      font-size: 17px;
+    }
+
+    .card-content {
+      padding: 19px;
+    }
+
+    .card-content h3 {
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .card-content p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 17px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--green);
+      color: #07110a;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 7px;
+      font-size: 13px;
+    }
+
+    .button:hover {
+      background: #a4ffc7;
+    }
+
+    .notice {
+      margin-top: 28px;
+      padding: 20px;
+      border: 1px solid #294632;
+      border-radius: 12px;
+      color: var(--muted);
+      background: #0d1510;
+      font-size: 14px;
+    }
+
+    .notice strong {
+      color: var(--green);
+    }
+
+    footer {
+      border-top: 1px solid #20392b;
+      padding: 25px 7%;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer span {
+      color: var(--green);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="index.html">🎮 CLPG</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a class="active" href="videos.html">Videos</a>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="tag">GAME • WATCH • REPEAT</div>
+    <h1>OUR <span>VIDEOS</span></h1>
+    <p>Gaming videos, gameplay, reviews and more. Welcome to the video zone of Computer Learn And Play Games!</p>
+  </section>
+
+  <main class="section">
+    <div class="section-heading">
+      <h2>🎬 Video Zone</h2>
+      <p>Explore the content and stay tuned for new uploads.</p>
+    </div>
+
+    <div class="video-grid">
+
+      <article class="video-card">
+        <div class="thumbnail">
+          <div class="symbol">🎮</div>
+          <strong>GAMEPLAY</strong>
+        </div>
+        <div class="card-content">
+          <h3>Gameplay Videos</h3>
+          <p>Watch gaming adventures and gameplay moments.</p>
+          <a class="button" href="https://www.youtube.com/" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="thumbnail">
+          <div class="symbol">⚡</div>
+          <strong>GAME REVIEWS</strong>
+        </div>
+        <div class="card-content">
+          <h3>Game Reviews</h3>
+          <p>Discover games and see what makes them interesting.</p>
+          <a class="button" href="https://www.youtube.com/" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="thumbnail">
+          <div class="symbol">🕹️</div>
+          <strong>MORE GAMING</strong>
+        </div>
+        <div class="card-content">
+          <h3>More Gaming Content</h3>
+          <p>More gaming content will be featured here.</p>
+          <a class="button" href="https://www.youtube.com/" target="_blank" rel="noopener">Explore YouTube ↗</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="notice">
+      <strong>🚀 More videos coming soon!</strong>
+      <br>
+      This is the first version of the Videos page. The cards are placeholders for now.
+      Your actual channel link and automatic latest-video display will be configured next.
+    </div>
+  </main>
+
+  <footer>
+    © <span>Computer Learn And Play Games</span> — Keep Gaming, Keep Learning!
+  </footer>
+
+</body>
+</html>
