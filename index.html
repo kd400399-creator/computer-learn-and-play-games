@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b09">
+  <title>CLPG | Computer Learn And Play Games</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #080b09;
+      color: #f5fff8;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      padding: 22px 8%;
+      border-bottom: 1px solid #183b27;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo { color: #52ff91; font-weight: bold; font-size: 22px; }
+    nav { display: flex; gap: 20px; flex-wrap: wrap; }
+    a { color: #eafff0; text-decoration: none; }
+    a:hover { color: #52ff91; }
+    .hero {
+      min-height: 65vh;
+      padding: 80px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: radial-gradient(ellipse at 75% 30%, #123b24 0%, #080b09 65%);
+    }
+    .tag { color: #52ff91; letter-spacing: 3px; font-size: 13px; }
+    h1 { font-size: clamp(40px, 7vw, 76px); margin: 18px 0; }
+    h1 span { color: #52ff91; }
+    .hero p { max-width: 560px; color: #b8c8bd; line-height: 1.8; }
+    .button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 14px 22px;
+      background: #52ff91;
+      color: #07110a;
+      border-radius: 6px;
+      font-weight: bold;
+      width: fit-content;
+    }
+    section { padding: 55px 8%; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
+    .card { padding: 24px; border: 1px solid #244832; border-radius: 12px; background: #101812; }
+    .card h3 { color: #52ff91; }
+    footer { padding: 25px 8%; border-top: 1px solid #183b27; color: #a9b9ad; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🎮 CLPG</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="videos.html">Videos</a>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="tag">WELCOME TO CLPG</div>
+      <h1>LEVEL UP YOUR<br><span>GAMING WORLD.</span></h1>
+      <p>Gaming videos, reviews and a community for gamers.
+         Welcome to Computer Learn And Play Games!</p>
+      <a class="button" href="videos.html">Explore Videos →</a>
+    </section>
+
+    <section>
+      <h2>Explore CLPG</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>📺 Gaming Videos</h3>
+          <p>Watch videos and gaming reviews from our YouTube channel.</p>
+          <a href="videos.html">Explore →</a>
+        </div>
+        <div class="card">
+          <h3>💬 Community</h3>
+          <p>Visit the CLPG community page.</p>
+          <a href="community.html">Explore →</a>
+        </div>
+        <div class="card">
+          <h3>👾 About CLPG</h3>
+          <p>Learn about Computer Learn And Play Games.</p>
+          <a href="about.html">Read more →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© CLPG — Computer Learn And Play Games</footer>
+</body>
+</html>
